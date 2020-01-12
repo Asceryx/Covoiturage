@@ -1,0 +1,59 @@
+<!DOCTYPE>
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<meta charset="utf-8">
+	<title> authentification</title>
+	<link rel="stylesheet" type="text/css" href="{% static "auths/css/style.css" %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script type="text/javascript"> 
+			/*ar utilisateur=[
+	{identifiant="123456",
+	password="wadie"},
+	{
+		identifiant: "789456",
+		password: "alex"},
+		{
+			identifiant: "1234567",
+			password :"julian"
+		}
+	]*/
+
+
+</script>
+</head>
+<body>
+
+{% if error %}
+<p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>
+{% endif %}
+
+
+{% if user.is_authenticated %}
+Vous êtes connecté, {{ user.username }} !
+{% else %}
+
+<form method="POST" action="{% url "connexion" %}">
+	{% csrf_token %}
+	<div class="login-box" >
+		<h1>Covoiturage</h1>
+		<div class="textbox">
+			<i class="glyphicon glyphicon-user" aria-hidden="true" f0c0></i>
+			{{ form.username }}
+		</div>
+
+		<div class="textbox">
+			<i class="glyphicon glyphicon-lock"></i>
+			{{ form.password }}
+		</div>
+	
+		<button class="btn" type="submit" name="" value="Sign in"> Sign in</button>
+	
+	</div>
+</form>
+
+{% endif %}
+
+</body>
+</html>

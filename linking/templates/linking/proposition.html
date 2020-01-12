@@ -1,0 +1,6 @@
+{% for proposal in propositions %}
+	<p><li>{{ proposal.driver }} </li>
+	<li>{{ proposal.path }} </li>
+	<li>{{ proposal.path.datedeparture }}</li></p>
+
+{% endfor %}

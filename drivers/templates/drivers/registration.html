@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<title>conducteur</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static "drivers/css/conducteur.css" %}">
+    {{ form.media }}
+</head>
+<body>
+		<header>
+		<div class="header">
+  <a href="https://ent.univ-poitiers.fr/uPortal/render.userLayoutRootNode.uP" class="logo"><img src="{% static "drivers/img/logo1.png"  %}" alt="logo de l'université"></a>  
+
+  <div class="header-right">
+     <a class="active" href="accueil.html">Acceuil</a>
+    <a href="authentification.html">Deconnexion</a>
+  </div>
+</div>
+
+	<!--<img src="logo.png " alt="logo de l'univesité">
+	<pre id="po"> 		  ENT
+		  Université de Poitiers
+		  Environement numérique de travail
+		</pre>-->
+</header>
+	<div class="topnav">
+  <a  href="acceuil.html">Accueil</a>
+  <a class="active" href="conducteur.html">Conducteur</a>
+  <a href="trajet.html">Passager</a>
+
+</div>
+<div class="form-style-5">
+<form method="post">
+<fieldset>
+<legend>{{ user.get_username }}, propose ton trajet !</legend>
+{% csrf_token %}
+{{ form }}
+<input type="submit" value="Poster" />
+</form>
+</div>
+
+<footer class="footer">
+  <div class="t3"><a href="https://ent.univ-poitiers.fr/uPortal/render.userLayoutRootNode.uP">Université de Poitiers</a> <br>
+  Tél : (33) (0)5 49 45 30 00 - Fax : (33) (0)5 49 45 30 50 - assistance@support.univ-poitiers.fr</pre></div></footer>
+
+</body>
+</html>
