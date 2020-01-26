@@ -12,3 +12,22 @@ class Proposal(models.Model):
 
 	class Meta :	
 		ordering =['driver']
+
+
+class Candidate(models.Model):
+	path = models.ForeignKey(Path, on_delete=models.CASCADE)
+	passenger = models.OneToOneField(Passenger, on_delete=models.CASCADE)
+	validate = models.BooleanField()
+
+	def __str__(self):
+		return "{} for {} is validate({})".format(passenger,path, validate)
+
+	class Meta :
+		ordering = ['passenger']
+
+
+
+
+
+
+

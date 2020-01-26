@@ -15,12 +15,6 @@ class Path(models.Model):
 	arrive =  models.ForeignKey(Location, on_delete=models.CASCADE, related_name='requests_arrive')
 	datedeparture = models.DateTimeField()
 
-	"""
-	CUSTOM METHOD : 
-		- This model should be :
-				- Check if date and hours is good 
-	ForeignKey
-	"""
 	def __str__(self):
 		return "{} -> {}".format(self.departure,self.arrive)
 
@@ -35,7 +29,6 @@ class Driver(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	email = models.CharField(max_length=200)
 	phone = models.CharField(max_length=200)
-	driver_path = models.ForeignKey(Path, on_delete=models.CASCADE)
 
 
 	def __str__(self):

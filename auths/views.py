@@ -3,10 +3,12 @@ from .forms import ConnexionForm
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 
+from django.http import JsonResponse
+
+
 
 def connexion(request):
     error = False
-    redirect_to = request.REQUEST.get('next', '')
     if request.method == "POST":
         form = ConnexionForm(request.POST)
         if form.is_valid():
@@ -15,8 +17,10 @@ def connexion(request):
             user = authenticate(username=username, password=password)
             if user:  
                 login(request, user)
+                return redirect(reverse('home'))
             else: 
                 error = True
+
     else:
         form = ConnexionForm()
 
@@ -26,5 +30,7 @@ def connexion(request):
 def deconnexion(request):
     logout(request)
     return redirect(reverse(connexion))
+
+
 
 
