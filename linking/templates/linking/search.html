@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+	<title>Rechercher un trajet</title>
+	<meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{% static "linking/css/css.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "linking/css/chercher.css" %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+   <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+   <!-- XDSoft DateTimePicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+	<header>
+		<div class="header">
+      <a href="https://ent.univ-poitiers.fr/uPortal/render.userLayoutRootNode.uP" class="logo"><img src="{% static "linking/img/logo1.png"  %}" alt="logo de l'univesité"></a>  
+
+      <div class="header-right">
+        <a class="active" href="acceuil.html">Accueil</a>
+        <a href="authentification.html">Déconnexion</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="topnav">
+    <a  href="{% url "home" %}">Accueil</a>
+    <a  href="{% url "conducteur" %}">Conducteur</a>
+    <a class="active" href="{% url "passager" %}">Passager</a>
+  </div>
+
+  <div class="form-style-5">
+    <form method="post">
+      <fieldset>
+        <legend> Chercher un trajet</legend>
+        {% csrf_token %}
+        {{ form }}
+        <script>
+          $(function () {
+            $("#id_datetime").datetimepicker({
+              format: 'd/m/Y H:i',
+            });
+          });
+        </script>
+
+        <input type="submit" value="Chercher un trajet" />
+    </form>
+  </div>
+
+<footer class="footer">
+  <div class="t3"><a href="https://ent.univ-poitiers.fr/uPortal/render.userLayoutRootNode.uP">Université de Poitiers</a> <br>
+  Tél : (33) (0)5 49 45 30 00 - Fax : (33) (0)5 49 45 30 50 - assistance@support.univ-poitiers.fr</pre></div>
+</footer>
+</body>
+</html>
