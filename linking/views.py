@@ -6,13 +6,14 @@ from drivers.models import Path
 from datetime import timedelta
 from .forms import LinkingSearch
 
+from django.contrib.auth.decorators import login_required
 
-
+@login_required()
 def proposal_listing(request):
 	propositions = Proposal.objects.filter(path__datedeparture__gte=timezone.now())
 	return render(request, 'linking/proposition.html', {'propositions': propositions})
 
-
+@login_required()
 def research(request):
 	if request.method == 'POST':
 		form = LinkingSearch(request.POST)
@@ -31,6 +32,7 @@ def research(request):
 		form = LinkingSearch()
 
 	return render(request, 'linking/search.html', {'form': form})
+
 
 
 

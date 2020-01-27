@@ -3,10 +3,11 @@ from .models import Driver,Car,Location
 from django.utils.timezone import now
 
 
-class DriverForm(forms.Form):
+class DriverRegistrationForm(forms.Form):
 	email = forms.EmailField(label='Email', max_length=254)
 	phone = forms.CharField(label='Numéro téléphone')
-	car = forms.CharField(label = 'Véhicule')
+	vehicule = forms.CharField(label = 'Marque du véhicule', max_length=254)
+	place_available = forms.IntegerField(label='Place disponible')
 	
 
 class DriverProposition(forms.Form):

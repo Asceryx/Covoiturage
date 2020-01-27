@@ -36,6 +36,11 @@ class Driver(models.Model):
 
 	class Meta :	
 		ordering =['user']
+		permissions = [
+		('can_propose_path', 'Driver can propose a path'),
+		('can_see_candidate', 'Driver can see candidate for a path'),
+		('can_validate_candidate', 'Driver can validate candidate for a path')
+		]
 
 
 class Car(models.Model):

@@ -29,10 +29,13 @@
 <p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>
 {% endif %}
 
-
 {% if user.is_authenticated %}
-Vous êtes connecté, {{ user.username }} !
+<div class="error">Vous êtes connecté en tant que {{ user.username }}</div>
 {% else %}
+
+
+
+
 
 <form method="POST" action="{% url "connexion" %}">
 	{% csrf_token %}

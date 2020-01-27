@@ -15,7 +15,7 @@ class Proposal(models.Model):
 
 
 class Candidate(models.Model):
-	path = models.ForeignKey(Path, on_delete=models.CASCADE)
+	proposition = models.OneToOneField(Proposal, on_delete=models.CASCADE)
 	passenger = models.OneToOneField(Passenger, on_delete=models.CASCADE)
 	validate = models.BooleanField()
 
@@ -24,6 +24,7 @@ class Candidate(models.Model):
 
 	class Meta :
 		ordering = ['passenger']
+
 
 
 

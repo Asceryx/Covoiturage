@@ -6,6 +6,13 @@ body{
 	background: url(page-title.jpg) no-repeat ; 
 	background-size: 100%;
 }
+
+.error{
+	color : white;
+	text-align: center;
+	padding: 100px 0px;
+}
+
 .login-box {
 	width: 280px;
 	position: absolute;
