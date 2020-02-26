@@ -1,14 +1,45 @@
-<TABLE BORDER="1">
-<CAPTION> PROPOSITION (BETA) </CAPTION>
-<TR>
-<TH> Nom du conducteur </TH>
-<TH> Trajet proposé </TH>
-<TH> Date de départ </TH>
-</TR>
-{% for proposal in propositions %}
-<TR>
-	<TD> {{ proposal.driver }} </TD>
-	<TD> {{ proposal.path }} </TD>
-	<TD> {{ proposal.path.datedeparture }}</TD>
-</TR>
-{% endfor %}
+<!DOCTYPE html>
+<html>
+	<head>
+		{% load static %}
+		<title>Proposition</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{% static "linking/css/test.css" %}">
+	</head>
+	<body>
+		<header>
+			<div class="header">
+				<a href="https://ent.univ-poitiers.fr/uPortal/render.userLayoutRootNode.uP" class="logo"><img src="{% static "linking/img/logo1.png"  %}" alt="logo de l'université"></a>  
+				<div class="header-right">
+					<a class="active" href="{% url "home" %}">Accueil</a>
+					<a href="{% url "deconnexion" %}">Déconnexion</a>
+				</div>
+			</div>
+		</header>
+		<div class="topnav">
+			<a href="{% url "home" %}">Accueil</a>
+			<a href="{% url "conducteur" %}">Conducteur</a>
+			<a class="active" href="{% url "passager" %}">Passager</a>
+		</div>
+		<div class="heading">
+			<strong>Résultat de votre recherche :</strong>
+		</div>	
+		{% for proposal in propositions %}
+		<blockquote>
+			<pre>
+				<strong>Tél :</strong> {{ proposal.driver.phone }} 
+				<strong>Date :</strong> {{ proposal.path.datedeparture }}
+				<strong>Départ :</strong> {{ proposal.path.departure }}
+				<strong>Arrivé:</strong> {{ proposal.path.arrive }} 
+			</pre>
+			<i><Strong>{{ proposal.driver }}</strong></i>
+		</blockquote>
+		{% endfor %}
+
+<footer class="footer">
+	<div class="t3"><a href="https://ent.univ-poitiers.fr/uPortal/render.userLayoutRootNode.uP">Université de Poitiers</a> <br>
+	Tél : (33) (0)5 49 45 30 00 - Fax : (33) (0)5 49 45 30 50 - assistance@support.univ-poitiers.fr</pre></div>
+</footer>
+
+</body>
+</html>

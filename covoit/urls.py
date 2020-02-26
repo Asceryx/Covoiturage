@@ -23,4 +23,5 @@ urlpatterns = [
     path('proposition/',include('linking.urls')),
     path('authentification/',include('auths.urls')),
     path('accueil/', include('home.urls')),
+    path('mobile/', include('androidcom.urls')),
 ]

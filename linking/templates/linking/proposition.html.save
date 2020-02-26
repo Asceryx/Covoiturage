@@ -1,0 +1,14 @@
+<TABLE BORDER="1">
+<CAPTION> PROPOSITION (BETA) </CAPTION>
+<TR>
+<TH> Nom du conducteur </TH>
+<TH> Trajet proposé </TH>
+<TH> Date de départ </TH>
+</TR>
+{% for proposal in propositions %}
+<TR>
+	<TD> {{ proposal.driver }} </TD>
+	<TD> {{ proposal.path }} </TD>
+	<TD> {{ proposal.path.datedeparture }}</TD>
+</TR>
+{% endfor %}

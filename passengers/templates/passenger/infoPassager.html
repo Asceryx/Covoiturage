@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <title>Passager</title>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <a href="https://ent.univ-poitiers.fr/uPortal/render.userLayoutRootNode.uP" class="logo"><img src="{% static "drivers/img/logo1.png"  %}" alt="logo de l'université"></a>  
+        <div class="header-right">
+          <a class="active" href="{% url "home" %}">Accueil</a>
+          <a href="{% url "deconnexion" %}">Déconnexion</a>
+        </div>
+      </div>
+</div>
+
+</header>
+	<div class="topnav">
+  <a  href="acceuil.html">Acceuil</a>
+  <a  href="conducteur.html">Conducteur</a>
+  <a class="active" href="trajet.html">Passager</a>
+
+</div>
+<form action="trajet.html">
+<fieldset class="fieldset">
+<legend class="legend"> <Strong>Trajet en cours d'acceptation</Strong> </legend>
+
+<blockquote><pre>
+      
+         
+         <strong> depart : </strong> futurescope
+         <strong >arriver: </strong> descart
+         <strong> Date : </strong> 20/2/2020
+         <strong> Heure : </strong> 8h:00
+        </pre>
+        </blockquote>
+        <!-- <i><Strong>Isaac Asimov</strong></i>-->
+       <div id="center">
+        <input type="submit" name="modifier" value="Modifier" class="button">
+        <button class="button"><a href="afficherResultat.html" id ="btn2">Chercher Votre Traget</button>
+      
+        </div>
+ </fieldset>
+</form>
+ <footer class="footer">
+  <div class="t3"><a href="https://ent.univ-poitiers.fr/uPortal/render.userLayoutRootNode.uP">Université de Poitiers</a> <br>
+  Tél : (33) (0)5 49 45 30 00 - Fax : (33) (0)5 49 45 30 50 - assistance@support.univ-poitiers.fr</pre></div>
+</footer>
+</body>
+</html>

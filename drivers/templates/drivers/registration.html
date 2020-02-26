@@ -2,7 +2,7 @@
 <html>
 <head>
 	{% load static %}
-	<title>conducteur</title>
+	<title>Conducteur</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="{% static "drivers/css/conducteur.css" %}">
     {{ form.media }}
@@ -15,7 +15,7 @@
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>
 </head>
 <body>
-		<header>
+	<header>
 		<div class="header">
 			<a href="https://ent.univ-poitiers.fr/uPortal/render.userLayoutRootNode.uP" class="logo"><img src="{% static "drivers/img/logo1.png"  %}" alt="logo de l'université"></a>  
 			<div class="header-right">
@@ -29,7 +29,7 @@
 		  Université de Poitiers
 		  Environement numérique de travail
 		</pre>-->
-</header>
+	</header>
 	<div class="topnav">
 		<a  href="{% url "home" %}">Accueil</a>
 		<a class="active" href="{% url "conducteur" %}">Conducteur</a>

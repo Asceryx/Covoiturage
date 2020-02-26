@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Driver,Car,Path
 from linking.models import Proposal
+from django.utils import timezone
 
 from .forms import DriverProposition,DriverRegistrationForm
 from django.contrib.auth.decorators import login_required,permission_required
@@ -10,8 +11,10 @@ from django.contrib.auth.decorators import login_required,permission_required
 @login_required()
 def profil(request):
 	profil = Driver.objects.filter(user = request.user)
+
 	if profil.exists():
-		return HttpResponse("Main interface for <strong>existing</strong> driver")
+		propositions = Proposal.objects.filter(driver=profil.get(), path__datedeparture__gte=timezone.now())
+		return render(request, 'drivers/profil.html',{'propositions': propositions})
 	else:
 		if request.method == 'POST':
 			form = DriverRegistrationForm(request.POST)
@@ -33,8 +36,8 @@ def profil(request):
 		else:
 			form = DriverRegistrationForm()
 
-		return HttpResponse("Main interface for <strong>registration</strong> driver")
-		#return render(request, 'drivers/registration.html', {'form': form})
+		#return HttpResponse("Main interface for <strong>registration</strong> driver")
+		return render(request, 'drivers/registration.html', {'form': form})
 
 	"""
 	driver = Driver(
